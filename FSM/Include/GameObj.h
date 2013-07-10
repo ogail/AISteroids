@@ -16,24 +16,44 @@ class GameObj
 public:
 	//constructors/functions
 	GameObj(float _size = 1);
-    GameObj(const cyclone::Vector3 &_p, const float _angle);
-    GameObj(const cyclone::Vector3 &_p, const float _angle, const cyclone::Vector3 &_v);
-    ~GameObj();
+    
+	GameObj(const cyclone::Vector3 &_p, const float _angle);
+    
+	GameObj(const cyclone::Vector3 &_p, const float _angle, const cyclone::Vector3 &_v);
+    
+	~GameObj();
+	
 	virtual void Draw(){}
-    virtual void Init();
+    
+	virtual void Init();
+	
 	virtual void Update(float dt);
+	
 	virtual bool IsColliding(GameObj *obj);
+	
 	virtual void DoCollision(GameObj *obj) {Explode();m_active = false;}
+	
 	virtual void Explode();
+	
 	cyclone::Vector3 UnitVectorFacing();//unit vector in facing direction
+	
 	cyclone::Vector3 UnitVectorVelocity();//unit vector in velocity direction
+	
 	void setVelocity(cyclone::Vector3 velocity) { body.setVelocity(velocity); }
+	
 	cyclone::Vector3 getVelocity() { return body.getVelocity(); }
+	
 	void setAcceleration(cyclone::Vector3 acceleration) { body.setAcceleration(acceleration); }
+	
 	cyclone::Vector3 getAcceleration() { return body.getAcceleration(); }
+	
 	void setPosition(cyclone::Vector3 position) { body.setPosition(position); }
+	
 	cyclone::Vector3 getPosition() { return body.getPosition(); }
-	void addRotation(cyclone::Vector3 rotation) { body.addRotation(rotation); }
+	
+	void addRotation(cyclone::Vector3 rotation) { body.addTorque(rotation); }
+
+	cyclone::Matrix4 getTransform() { return body.getTransform(); }
 
 	enum//collision flags/object types
 	{

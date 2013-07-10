@@ -185,7 +185,7 @@ void Ship::Shoot(float angle)
 
 //---------------------------------------------------------
 void Ship::Draw()
-{ 
+{
 	//just a triangle
 	glPushMatrix();
 	glDisable(GL_LIGHTING);
@@ -332,6 +332,7 @@ void Ship::TurnLeft()
 void Ship::TurnRight()
 {
     m_angVelocity = MIN(-120.0f,-320.0f / Game.m_timeScale);
+	addRotation(Vector3(10, 0, 0));
 }
 
 //---------------------------------------------------------

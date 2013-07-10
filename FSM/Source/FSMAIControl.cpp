@@ -20,10 +20,10 @@ AIControl(ship)
     m_machine = new FSMMachine(FSM_MACH_MAINSHIP,this);
     StateApproach* approach = new StateApproach(this);
     m_machine->AddState(approach);
-    //m_machine->AddState(new StateAttack(this));
+    m_machine->AddState(new StateAttack(this));
     //m_machine->AddState(new StateMassiveAttack(this));
     m_machine->AddState(new StateEvade(this));
-    //m_machine->AddState(new StateGetPowerup(this));
+    m_machine->AddState(new StateGetPowerup(this));
     StateIdle* idle = new StateIdle(this);
     m_machine->AddState(idle);
     m_machine->SetDefaultState(approach);

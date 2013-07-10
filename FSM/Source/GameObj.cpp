@@ -88,8 +88,23 @@ void GameObj::Update(float dt)
  //   {
  //       m_position.z = 0.0f;
  //   }
+
+	//don't clamp bullets
+	if(!(m_type & OBJ_BULLET))
+	{
+		CLAMPVECTORLENGTH(getVelocity(), 0.0f, AI_MAX_SPEED_TRY);
+	}
 	
 	body.integrate(dt);
+	body.getOrientation();
+
+	//don't clamp bullets
+	if(!(m_type & OBJ_BULLET))
+	{
+		CLAMPVECTORLENGTH(getVelocity(), 0.0f, AI_MAX_SPEED_TRY);
+	}
+
+	Game.Clip(getPosition());
     
     if(m_lifeTimer != NO_LIFE_TIMER)
     {

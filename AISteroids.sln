@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AISteroids", "FSM\AISteroids.vcxproj", "{A85AD287-CC1B-4A13-9BA6-987E134286AE}"
 	ProjectSection(ProjectDependencies) = postProject
+		{BBE39697-6E7C-4C0B-946D-10EE23B80AC1} = {BBE39697-6E7C-4C0B-946D-10EE23B80AC1}
 		{642FD1DA-A1BA-4F56-95A6-924BA5E9A30C} = {642FD1DA-A1BA-4F56-95A6-924BA5E9A30C}
 	EndProjectSection
 EndProject
